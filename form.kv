@@ -1,0 +1,51 @@
+#:kivy 1.10.1
+#:import app app
+<LblTxt@BoxLayout>:
+    orientation: 'horizontal'      
+    lblTxtIn: 'default'
+    theTxt: iAmTxt
+    Label:
+        text: root.lblTxtIn
+    TextInput:
+        id: iAmTxt
+
+<LblNum@BoxLayout>:
+    orientation: 'horizontal'      
+    lblTxtIn: 'default'
+    theTxt: iAmTxt
+    Label:
+        text: root.lblTxtIn
+    TextInput:
+        id: iAmTxt
+        text: '1'
+
+<MyLayout@BoxLayout>:  
+    orientation: 'vertical'
+
+    LblTxt:   
+        id: question_id
+        lblTxtIn: 'question_id'
+
+    LblTxt:   
+        id: user
+        lblTxtIn: 'user'
+
+    LblTxt:   
+        id: crush
+        lblTxtIn: 'crush'
+
+    LblNum:   
+        id: request_num
+        lblTxtIn: 'request_num'
+
+    Button:
+        text: 'Send with Random crush name'
+        on_release: 
+            app.sendRandom(question_id.theTxt.text, user.theTxt.text, int(request_num.theTxt.text))
+
+    Button:
+        text: 'Send'
+        on_release: 
+            app.send(question_id.theTxt.text, user.theTxt.text, crush.theTxt.text, int(request_num.theTxt.text))
+
+MyLayout
